@@ -1,0 +1,19 @@
+{
+  "forest": "ad.az801.com",
+  "new_controller": {
+    "os": "Windows Server 2022",
+    "site": "SecondADSite",
+    "replication_source": "AZ801PacktLab-DC-01.az801.com"
+  },
+  "target_modes": {
+    "domain": "WinThreshold",
+    "forest": "Windows2016Forest"
+  },
+  "gates": [
+    {"name": "inventory-baseline", "evidence": "controller, policy, monitoring, and dependency baseline", "on_failure": "stop and remediate"},
+    {"name": "sysvol-replication", "evidence": "dfsrmig state is Eliminated", "on_failure": "stop and complete DFSR migration"},
+    {"name": "promotion-prerequisite", "evidence": "Test-ADDSForestInstallation succeeds", "on_failure": "stop and remediate prerequisite"},
+    {"name": "compatibility-rollback", "evidence": "compatibility owner and rollback action approved", "on_failure": "do not raise functional levels"}
+  ],
+  "post_change_checks": ["authentication", "DNS", "SYSVOL", "Group Policy", "monitoring"]
+}
