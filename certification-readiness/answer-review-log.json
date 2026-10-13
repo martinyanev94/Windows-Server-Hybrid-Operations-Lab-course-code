@@ -1,0 +1,45 @@
+{
+  "lesson_id": "l39",
+  "purpose": "Link practice-assessment errors to operational reasoning and corrective evidence.",
+  "entries": [
+    {
+      "question_id": "67",
+      "status": "worked_example",
+      "selected_answer": "True",
+      "correct_answer": "True",
+      "error_class": "boundary",
+      "reasoning": "The question asks for initial evidence collection during a BitLocker-related boot failure. Boot diagnostics and Serial Console support investigation; they are not presented as the repair itself.",
+      "corrective_artifact": "azure-vm-troubleshooting/decision-record.md",
+      "corrective_source_section": "Troubleshooting Windows Server Virtual Machines in Azure",
+      "next_verification": "Record boot-diagnostics evidence and the alternate access path before selecting a recovery action."
+    },
+    {
+      "question_id": "68",
+      "status": "worked_example",
+      "selected_answer": "C",
+      "correct_answer": "C",
+      "error_class": "boundary",
+      "reasoning": "The requested target is one deleted directory object. Active Directory Recycle Bin is the narrow object-level recovery path; DSRM and authoritative restore address broader recovery boundaries.",
+      "corrective_artifact": "active-directory-recovery/ad-recovery-runbook.json",
+      "corrective_source_section": "Troubleshooting Active Directory",
+      "next_verification": "Separate deleted-object recovery from AD database, SYSVOL, and replication recovery before choosing a procedure."
+    }
+  ],
+  "review_fields": [
+    "question_id",
+    "domain",
+    "selected_answer",
+    "correct_answer",
+    "error_class",
+    "reasoning",
+    "corrective_artifact",
+    "corrective_source_section",
+    "next_verification",
+    "evidence_state"
+  ],
+  "error_classes": [
+    "recall",
+    "boundary",
+    "evidence"
+  ]
+}
