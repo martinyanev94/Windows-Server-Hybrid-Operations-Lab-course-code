@@ -1,0 +1,2 @@
+# Windows-Server-Hybrid-Operations-Lab-course-code
+Learn Windows Server hybrid operations by building and operating a practical lab across on-premises infrastructure, Azure services, identity, networking, storage, and recovery. This standalone course shows how to validate designs with PowerShell, capture evidence, troubleshoot failures, and make controlled migration and failover decisions. Across 4
