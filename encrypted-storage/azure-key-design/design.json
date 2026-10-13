@@ -1,0 +1,37 @@
+{
+  "vm": "vm-app-01",
+  "os": "Windows",
+  "subscription": "sub-lab",
+  "region": "eastus",
+  "memory_gb": 4,
+  "generation": 1,
+  "encryption": "ADE",
+  "key_vault": "kv-encryption-lab",
+  "key_vault_subscription": "sub-lab",
+  "key_vault_region": "eastus",
+  "managed_identity": "mi-vm-app-01",
+  "workload_principal": "workload-operator-01",
+  "managed_identity_principal": "mi-vm-app-01",
+  "administrator_principal": "key-admin-01",
+  "key_encryption_key": "kek-vm-app-01",
+  "key_algorithm": "RSA",
+  "key_size_bits": 3072,
+  "preflight": {
+    "identity_endpoint_reachable": true,
+    "key_vault_endpoint_reachable": true,
+    "managed_identity_can_write_vault": true,
+    "ade_volume_encryption_policy_enabled": true,
+    "domain_joined": true,
+    "gpo_tpm_protectors_pushed": false,
+    "gpo_allows_256_bit_recovery_key": true,
+    "gpo_allows_aes_cbc": true
+  },
+  "access_roles": {
+    "workload_operator": ["vm.start", "vm.stop", "vm.read"],
+    "managed_identity": ["key.use", "secret.use", "vault.write"],
+    "key_administrator": ["key.read", "key.rotate", "vault.policy.manage"]
+  },
+  "rotation_procedure": "Under approved change, select the new key version; preserve or reauthorize the required version; verify managed-identity encryption access; check matching vault audit and restore evidence.",
+  "recovery_evidence": "vault-access-audit-and-restore-record",
+  "secrets_recorded": false
+}
