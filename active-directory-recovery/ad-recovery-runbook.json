@@ -1,0 +1,36 @@
+{
+  "scenario": "DC01 reports an AD database error and the SYSVOL share is unavailable.",
+  "recovery_source_reference": "Approved recovery source recorded in the incident system; secret material is not stored here.",
+  "steps": [
+    {
+      "name": "Capture evidence",
+      "validation": "Database symptom, SYSVOL symptom, recovery source reference, and replication decision are recorded.",
+      "stop_if_failed": true
+    },
+    {
+      "name": "Enter DSRM",
+      "validation": "DC01 is operating in the approved offline recovery mode before database files are handled.",
+      "stop_if_failed": true
+    },
+    {
+      "name": "Recover AD database",
+      "validation": "The approved database recovery operation completes and its evidence is recorded.",
+      "stop_if_failed": true
+    },
+    {
+      "name": "Validate directory",
+      "validation": "AD DS starts and directory operations respond before SYSVOL repair begins.",
+      "stop_if_failed": true
+    },
+    {
+      "name": "Recover SYSVOL",
+      "validation": "The selected SYSVOL recovery path and any authoritative decision are recorded.",
+      "stop_if_failed": true
+    },
+    {
+      "name": "Validate SYSVOL",
+      "validation": "The SYSVOL share is available and DFSR recovery state is recorded.",
+      "stop_if_failed": true
+    }
+  ]
+}
