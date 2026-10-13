@@ -1,0 +1,1 @@
+The design records quorum members, network purposes, intended node addresses, shared storage, and workload-role storage mapping. Test-ClusterDesign.ps1 checks internal consistency. A PENDING result means Cloud Witness credentials or reachability evidence is still required; it is not an approval.
