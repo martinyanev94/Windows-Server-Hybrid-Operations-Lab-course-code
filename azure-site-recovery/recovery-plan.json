@@ -1,0 +1,51 @@
+{
+  "name": "Finance-Recovery",
+  "sourceLocation": "on-premises",
+  "sourceNetwork": "Production-Server-Network",
+  "targetLocation": "Azure",
+  "targetSubscription": "recovery-subscription",
+  "networkMappings": {
+    "Production-Server-Network": {
+      "failover": "Recovery-VNet-Servers",
+      "testFailover": "Recovery-VNet-Test"
+    }
+  },
+  "recoveryPoint": "RP-2026-10-12-0900",
+  "validationChecks": [
+    "DNS:DC-DNS",
+    "TCP:SQL01:1433",
+    "App01:healthy",
+    "HTTP:Web01"
+  ],
+  "replicationPolicy": {
+    "rpoMinutes": 15,
+    "retentionHours": 24,
+    "appConsistentFrequencyMinutes": 60
+  },
+  "groups": [
+    {
+      "name": "Infrastructure",
+      "order": 1,
+      "workloads": ["DC-DNS"],
+      "dependsOn": []
+    },
+    {
+      "name": "Data",
+      "order": 2,
+      "workloads": ["SQL01"],
+      "dependsOn": ["Infrastructure"]
+    },
+    {
+      "name": "Application",
+      "order": 3,
+      "workloads": ["App01"],
+      "dependsOn": ["Data"]
+    },
+    {
+      "name": "Web",
+      "order": 4,
+      "workloads": ["Web01"],
+      "dependsOn": ["Application"]
+    }
+  ]
+}
