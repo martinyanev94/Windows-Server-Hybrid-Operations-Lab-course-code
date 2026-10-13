@@ -1,0 +1,16 @@
+{
+  "serverName": "APP01",
+  "shareName": "Finance",
+  "localPath": "D:\\Shares\\Finance",
+  "files": [
+    "Finance\\2026\\forecast.xlsx",
+    "Finance\\2026\\readme.txt"
+  ],
+  "permissions": [
+    "Finance-Editors:Modify",
+    "Finance-Readers:Read"
+  ],
+  "dependencies": [
+    "\\\\APP01\\Finance"
+  ]
+}
