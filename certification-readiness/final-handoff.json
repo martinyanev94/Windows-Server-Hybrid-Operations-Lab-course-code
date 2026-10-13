@@ -1,0 +1,42 @@
+{
+  "portfolio_id": "hybrid-lab-handoff",
+  "evidence": {
+    "topology": {
+      "state": "demonstrated",
+      "artifact": "lab-environment/topology.json",
+      "verification": "Management and workload boundaries are recorded and checked.",
+      "limitations": "The topology represents the lab environment, not every production dependency."
+    },
+    "security_baseline": {
+      "state": "demonstrated",
+      "artifact": "server-os-security/baseline/verification.json",
+      "verification": "Effective policy values and recorded exceptions were reviewed.",
+      "limitations": "A baseline review does not prove continuous compliance."
+    },
+    "recovery_test": {
+      "state": "demonstrated",
+      "artifact": "azure-site-recovery/test-failover-report.json",
+      "verification": "The recovery record identifies the recovery point, isolated target, endpoint checks, and cleanup status.",
+      "limitations": "The test result does not authorize production failover."
+    },
+    "migration_plan": {
+      "state": "designed",
+      "artifact": "azure-migrate/migration-wave-record.md",
+      "verification": "Dependencies, acceptance criteria, and observable rollback triggers are documented.",
+      "limitations": "No production cutover was observed in this portfolio."
+    },
+    "monitoring": {
+      "state": "demonstrated",
+      "artifact": "server-monitoring/performance-baseline/README.md",
+      "verification": "The collection question, counter window, baseline comparison, and telemetry limitation are recorded.",
+      "limitations": "A local baseline does not prove uninterrupted centralized ingestion."
+    },
+    "readiness_gaps": {
+      "state": "open",
+      "artifact": "certification-readiness/answer-review-log.json",
+      "verification": "Unresolved questions are classified and linked to targeted corrective artifacts.",
+      "limitations": "Learner-specific missed questions must be entered before readiness is finalized.",
+      "next_action": "Complete the answer-review log and perform the linked corrective practice."
+    }
+  }
+}
