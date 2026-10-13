@@ -1,0 +1,46 @@
+{
+  "rules": [
+    {
+      "name": "DomainServersToFileService",
+      "boundary": "connection-security",
+      "sourceIdentity": "Approved-Domain-Servers",
+      "destination": "FileService",
+      "protocol": "TCP",
+      "port": 445,
+      "requirement": "Authenticated and encrypted connection",
+      "action": "Allow"
+    },
+    {
+      "name": "ApprovedAzureServiceToStorage",
+      "boundary": "storage-firewall",
+      "sourceServiceTag": "Approved-Azure-Service",
+      "destination": "StorageAccount",
+      "protocol": "HTTPS",
+      "port": 443,
+      "requirement": "Selected network or service boundary",
+      "action": "Allow"
+    }
+  ],
+  "expectedResults": [
+    {
+      "source": "Approved-Domain-Servers",
+      "destination": "FileService",
+      "expected": "Allowed only when the connection is authenticated and encrypted"
+    },
+    {
+      "source": "Unmanaged-Computer",
+      "destination": "FileService",
+      "expected": "Denied"
+    },
+    {
+      "source": "Approved-Azure-Service",
+      "destination": "StorageAccount",
+      "expected": "Allowed through the selected storage boundary"
+    },
+    {
+      "source": "Public-Internet",
+      "destination": "StorageAccount",
+      "expected": "Denied unless explicitly included by the storage firewall"
+    }
+  ]
+}
