@@ -1,0 +1,36 @@
+{
+  "workload": "InventoryWeb",
+  "execution_mode": "simulated",
+  "recovery_point": "recorded recovery point from recovery plan",
+  "network_mapping": {
+    "production_recovery_network": "secondary production network",
+    "test_failover_network": "isolated test network"
+  },
+  "validation": [
+    {
+      "check": "Recovered VM starts",
+      "status": "pass",
+      "evidence": "Simulated result; replace with observed evidence for a live test"
+    },
+    {
+      "check": "Application endpoint responds",
+      "status": "pass",
+      "evidence": "Simulated result; replace with approved client-path evidence"
+    },
+    {
+      "check": "Required data-service dependency reachable",
+      "status": "fail",
+      "evidence": "Simulated blocked dependency"
+    }
+  ],
+  "cleanup": {
+    "status": "complete",
+    "evidence": "Simulated cleanup recorded"
+  },
+  "production_failover_decision": "remediate_first",
+  "decision_reason": "The recovery operation completed, but application usability was not demonstrated because a required dependency was unreachable.",
+  "limitations": [
+    "This record is illustrative and does not claim that Azure performed a live failover.",
+    "RPO, RTO, target routing, access controls, and workload-owner approval require deployment-specific confirmation."
+  ]
+}
