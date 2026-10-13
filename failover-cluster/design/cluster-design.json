@@ -1,0 +1,37 @@
+{
+  "clusterName": "FS-CLUSTER",
+  "nodes": [
+    {
+      "name": "FS-01",
+      "networks": {
+        "Management": "10.10.10.11",
+        "Cluster": "192.168.3.13",
+        "Storage": "172.16.10.11"
+      }
+    },
+    {
+      "name": "FS-02",
+      "networks": {
+        "Management": "10.10.10.12",
+        "Cluster": "192.168.3.14",
+        "Storage": "172.16.10.12"
+      }
+    }
+  ],
+  "witness": {
+    "type": "cloud",
+    "storageAccount": "clusterwitnesslab01",
+    "serviceEndpoint": "core.windows.net",
+    "credentialsPending": true,
+    "internetRequired": true
+  },
+  "networks": [
+    { "name": "Management", "purpose": "administration" },
+    { "name": "Cluster", "purpose": "node communication" },
+    { "name": "Storage", "purpose": "shared data access" }
+  ],
+  "sharedStorage": ["CSV-Data"],
+  "roles": [
+    { "name": "FileServer", "storage": "CSV-Data" }
+  ]
+}
