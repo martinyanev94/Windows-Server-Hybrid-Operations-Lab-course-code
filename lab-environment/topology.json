@@ -1,0 +1,49 @@
+{
+  "host": {
+    "name": "LAB-HOST01",
+    "platform": "Hyper-V",
+    "operating_system": "Windows 10/11 Pro, Enterprise, or Education; or supported Windows Server",
+    "requirements": {
+      "architecture": "64-bit",
+      "slat": "required",
+      "vm_monitor_mode_extensions": "required",
+      "virtualization_firmware": "required",
+      "hardware_enforced_data_execution_prevention": "required",
+      "minimum_memory_gb": 4,
+      "recommended_memory_gb": 8
+    }
+  },
+  "virtual_machines": [
+    {
+      "name": "DC01",
+      "role": "Directory and DNS services",
+      "network": "management"
+    },
+    {
+      "name": "MGMT01",
+      "role": "Administration workstation",
+      "network": "management"
+    },
+    {
+      "name": "SRV01",
+      "role": "Workload test server",
+      "network": "workload"
+    }
+  ],
+  "networks": [
+    {
+      "name": "management",
+      "purpose": "Administrative access to lab infrastructure"
+    },
+    {
+      "name": "workload",
+      "purpose": "Service and workload test traffic"
+    }
+  ],
+  "azure_access": {
+    "tenant": "pending",
+    "subscription": "pending",
+    "advanced_identity_license": "verify per exercise",
+    "secrets_stored_in_file": false
+  }
+}
