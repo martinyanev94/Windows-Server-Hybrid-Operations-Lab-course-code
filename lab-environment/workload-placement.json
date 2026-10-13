@@ -1,0 +1,19 @@
+{
+  "workloads": [
+    {
+      "name": "file-service",
+      "model": "on-premises",
+      "reason": "Users and storage depend on the local Windows Server environment."
+    },
+    {
+      "name": "hybrid-identity",
+      "model": "hybrid",
+      "reason": "Local directory services must support access to both local and cloud resources."
+    },
+    {
+      "name": "web-api",
+      "model": "cloud-native",
+      "reason": "The new API is designed for containers and managed cloud services."
+    }
+  ]
+}
