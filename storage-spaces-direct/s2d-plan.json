@@ -1,0 +1,23 @@
+{
+  "deploymentMode": "hyper-converged",
+  "clusterName": "S2D-CLUSTER",
+  "networkPurpose": ["management", "cluster", "storage"],
+  "nodes": [
+    { "name": "S2D-01", "networkGbps": 10, "connections": 2, "drivesClean": true },
+    { "name": "S2D-02", "networkGbps": 10, "connections": 2, "drivesClean": true },
+    { "name": "S2D-03", "networkGbps": 10, "connections": 2, "drivesClean": true }
+  ],
+  "storageLayout": {
+    "poolCount": 1,
+    "resiliency": "select after capacity and failure-domain validation",
+    "filesystem": "ReFS"
+  },
+  "upgradeOrder": ["S2D-01", "S2D-02", "S2D-03"],
+  "upgradePrerequisites": [
+    "usable backups",
+    "vendor BIOS, driver, and firmware compatibility",
+    "current target operating-system updates",
+    "storage maintenance mode for the node being upgraded",
+    "storage and node health validation between nodes"
+  ]
+}
