@@ -1,0 +1,15 @@
+{
+  "workload": "FIN-APP-01",
+  "dependencies": ["FIN-DB-01", "AD-01"],
+  "dependencies_included": false,
+  "sizing_basis": "observed performance",
+  "recommended_size": "pending portal result",
+  "observation_window": "pending portal result",
+  "constraints": ["FIN-DB-01 inclusion is unresolved"],
+  "wave": "wave-1",
+  "assumptions": [
+    "FIN-DB-01 is included before production migration",
+    "the application owner will validate the migrated endpoint",
+    "rollback ownership is recorded before cutover"
+  ]
+}
